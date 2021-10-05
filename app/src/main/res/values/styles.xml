@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CircularProgressIndicator" parent="Widget.MaterialComponents.CircularProgressIndicator">
+        <item name="indicatorSize">32dp</item>
+        <item name="indicatorColor">@color/white</item>
+        <item name="trackColor">@color/colorSecondaryText</item>
+    </style>
+
+</resources>

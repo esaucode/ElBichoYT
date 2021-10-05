@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">ElBicho</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="login__title">El bicho YT</string>
+    <string name="login__email_hint">Correo electrónico</string>
+    <string name="login__password_hint">Contraseña</string>
+    <string name="login__login_button">Iniciar sesión</string>
+    <string name="login__signup_button">Crear cuenta</string>
+
+    <string name="login__error_user_no_registered">No existe un usuario registrado con este correo electrónico</string>
+    <string name="login__error_wrong_password">Contraseña incorrecta</string>
+    <string name="login__error_unknown_error">Algo salió mal, intente de nuevo más tarde</string>
+    <string name="login__error_enter_email">Ingrese su correo electrónico.</string>
+    <string name="login__error_enter_password">Ingrese su contraseña.</string>
+
+
+    <string name="signup__header">Crear cuenta</string>
+    <string name="signup__email_hint">Correo electrónico</string>
+    <string name="signup__password_hint">Contraseña</string>
+    <string name="signup__conf_password">Confirma tu contraseña</string>
+    <string name="signup__signup_button">Registrarme</string>
+    <string name="signup__signup_successfully">Cuenta creada correctamente</string>
+    <string name="signup__error_password_insecure">Tu contraseña debe tener al menos 6 caracteres</string>
+    <string name="signup__error_passwords_match">Las contraseñas no coinciden</string>
+    <string name="signup__error_email_already_registered">Ya existe una cuenta registrada con este correo electrónico</string>
+    <string name="signup__error_unknown_error">Algo salió mal, intente de nuevo más tarde</string>
+</resources>
