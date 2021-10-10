@@ -16,4 +16,10 @@ object Constants {
 
     const val USER_NOT_EXISTS : String = "There is no user record corresponding to this identifier. The user may have been deleted."
     const val WRONG_PASSWORD : String = "The password is invalid or the user does not have a password."
+
+    // Shared preferences
+    const val ENCRYPTED_SHARED_PREFERENCES_NAME = "EL_BICHO_SHARED"
+
+    const val SHARED_EMAIL = "email"
+    const val SHARED_PASSWORD = "password"
 }
