@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.esaudev.elbichoyt.domain.model.Bicho
+import com.esaudev.elbichoyt.domain.usecases.bichos.DeleteBichoUseCase
 import com.esaudev.elbichoyt.domain.usecases.bichos.GetBichosUseCase
 import com.esaudev.elbichoyt.domain.usecases.bichos.SaveBichoImageUseCase
 import com.esaudev.elbichoyt.domain.usecases.bichos.SaveBichoUseCase
@@ -26,7 +27,8 @@ import javax.inject.Inject
 class BichosViewModel @Inject constructor(
     private val getAllBichosUseCase: GetBichosUseCase,
     private val saveBichosUseCase: SaveBichoUseCase,
-    private val saveBichoImageUseCase: SaveBichoImageUseCase
+    private val saveBichoImageUseCase: SaveBichoImageUseCase,
+    private val deleteBichoUseCase: DeleteBichoUseCase
 ): ViewModel(){
 
 
@@ -37,6 +39,10 @@ class BichosViewModel @Inject constructor(
     private val _saveBichoState: MutableLiveData<DataState<Boolean>> = MutableLiveData()
     val saveBichoState: LiveData<DataState<Boolean>>
         get() = _saveBichoState
+
+    private val _deleteBichoState: MutableLiveData<DataState<Boolean>> = MutableLiveData()
+    val deleteBichoState: LiveData<DataState<Boolean>>
+        get() = _deleteBichoState
 
     fun getAllBichos(){
         viewModelScope.launch {
@@ -52,6 +58,15 @@ class BichosViewModel @Inject constructor(
             saveBichosUseCase(bicho)
                 .onEach { dataState ->
                     _saveBichoState.value = dataState
+                }.launchIn(viewModelScope)
+        }
+    }
+
+    fun deleteBicho(id: String){
+        viewModelScope.launch {
+            deleteBichoUseCase(id)
+                .onEach { dataState ->
+                    _deleteBichoState.value = dataState
                 }.launchIn(viewModelScope)
         }
     }

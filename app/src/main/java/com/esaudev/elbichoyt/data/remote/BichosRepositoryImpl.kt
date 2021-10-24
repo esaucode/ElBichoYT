@@ -92,4 +92,27 @@ class BichosRepositoryImpl @Inject constructor(
                 )
             }
     }
+
+    override suspend fun deleteBicho(id: String): Flow<DataState<Boolean>> = flow {
+        emit(DataState.Loading)
+        try {
+
+            var bichoSuccessfully: Boolean = false
+
+            bichosCollection.document(id)
+                .delete()
+                .addOnSuccessListener {
+                    bichoSuccessfully = true
+                }
+                .addOnFailureListener {
+                    bichoSuccessfully = false
+                }.await()
+
+            emit(DataState.Success(bichoSuccessfully))
+            emit(DataState.Finished)
+
+        }catch (e:Exception){
+            emit(DataState.Error(e))
+        }
+    }
 }

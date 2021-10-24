@@ -20,6 +20,7 @@ import com.esaudev.elbichoyt.databinding.FragmentAddEditBichoBinding
 import com.esaudev.elbichoyt.domain.model.Bicho
 import com.esaudev.elbichoyt.domain.model.User
 import com.esaudev.elbichoyt.utils.*
+import com.esaudev.elbichoyt.utils.Constants.EXTRAS_BICHO
 import com.esaudev.elbichoyt.utils.StorageUtils.BICHO_IMAGE
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.IOException
@@ -31,7 +32,11 @@ class AddEditBichoFragment : Fragment() {
     private val binding get() =_binding!!
 
     private var mSelectedImageURI: Uri? = null
-    private var mBichoImageURL: String = Constants.DEFAULT_TEAM_IMAGE
+    private var mBichoImageURL: String = Constants.DEFAULT_BICHO_IMAGE
+    private var isImageSelected: Boolean = false
+    private var comesFromExtras: Boolean = false
+
+    private var mBicho: Bicho = Bicho()
 
     private val viewModel: BichosViewModel by viewModels()
 
@@ -47,8 +52,23 @@ class AddEditBichoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mBicho = arguments?.getParcelable<Bicho>(EXTRAS_BICHO)?: Bicho()
+
+        initView()
         initListeners()
         initObservers()
+    }
+
+    private fun initView(){
+        if (!mBicho.title.isNullOrEmpty()){
+            binding.tvHeader.text = getString(R.string.addeditbicho__header_update)
+            binding.etTitle.setText(mBicho.title)
+            binding.etDescription.setText(mBicho.description)
+            mBichoImageURL = mBicho.image
+            isImageSelected = true
+            comesFromExtras = true
+            binding.ivImage.load(mBicho.image)
+        }
     }
 
     private fun initObservers(){
@@ -81,7 +101,7 @@ class AddEditBichoFragment : Fragment() {
 
         binding.btnAddEdit.setOnClickListener {
             if (isAllDataSet()){
-                if (mSelectedImageURI == null){
+                if (!isImageSelected){
                     showProgressBar()
                     viewModel.saveBicho(Bicho(
                         title = binding.etTitle.text.toString(),
@@ -90,7 +110,16 @@ class AddEditBichoFragment : Fragment() {
                     hideKeyboard()
                 }else{
                     showProgressBar()
-                    viewModel.saveBichoImage(requireActivity(), mSelectedImageURI, BICHO_IMAGE, this)
+                    if (comesFromExtras){
+                        viewModel.saveBicho(Bicho(
+                            id = mBicho.id,
+                            title = binding.etTitle.text.toString(),
+                            description = binding.etDescription.text.toString(),
+                            image = mBichoImageURL
+                        ))
+                    } else {
+                        viewModel.saveBichoImage(requireActivity(), mSelectedImageURI, BICHO_IMAGE, this)
+                    }
                 }
             } else {
                 activity?.toast("Debe llenar todos los datos para continuar")
@@ -151,6 +180,7 @@ class AddEditBichoFragment : Fragment() {
             if (requestCode == StorageUtils.PICK_IMAGE_REQUEST_CODE){
                 if (data != null){
                     mSelectedImageURI=data.data!!
+                    isImageSelected = true
                     try {
                         //Glide.with(requireContext()).load(mSelectedImageURI).centerCrop().into(binding.ivTeamImage)
                         binding.ivImage.loadURI(mSelectedImageURI!!)

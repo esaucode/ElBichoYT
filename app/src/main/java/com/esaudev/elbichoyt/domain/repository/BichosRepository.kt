@@ -16,4 +16,6 @@ interface BichosRepository {
     suspend fun getAllBichos(): Flow<DataState<List<Bicho>>>
 
     fun saveBichoImage(activity: Activity, imageFileURI: Uri?, imageType: String, fragment: Fragment)
+
+    suspend fun deleteBicho(id: String): Flow<DataState<Boolean>>
 }
