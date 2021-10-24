@@ -26,4 +26,13 @@
     <string name="signup__error_passwords_match">Las contraseñas no coinciden</string>
     <string name="signup__error_email_already_registered">Ya existe una cuenta registrada con este correo electrónico</string>
     <string name="signup__error_unknown_error">Algo salió mal, intente de nuevo más tarde</string>
+
+    <string name="addeditbicho__hint_title">Titulo</string>
+    <string name="addeditbicho__hint_description">Describa al bicho</string>
+    <string name="addeditbicho__button_add">Guardar</string>
+    <string name="addeditbicho__header_add">Guardar bicho</string>
+    <string name="addeditbicho__header_update">Actualizar bicho</string>
+
+    <string name="read_storage_permission_denied">Oops, parece que no aceptaste los permisos necesarios. Puedes hacerlo desde configuración.</string>
+    <string name="image_selection_failed">Oops, parece que algo salió mal.</string>
 </resources>

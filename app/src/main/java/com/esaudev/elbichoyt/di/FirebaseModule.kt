@@ -1,5 +1,6 @@
 package com.esaudev.elbichoyt.di
 
+import com.esaudev.elbichoyt.utils.Constants.BICHOS_COLLECTION
 import com.esaudev.elbichoyt.utils.Constants.USERS_COLLECTION
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
@@ -36,7 +37,17 @@ object FirebaseModule {
         return firestore.collection(USERS_COLLECTION)
     }
 
+    @BichosCollection
+    @Provides
+    @Singleton
+    fun provideBichosCollection(
+        firestore: FirebaseFirestore
+    ): CollectionReference {
+        return firestore.collection(BICHOS_COLLECTION)
+    }
+
     @Qualifier
     @Retention(AnnotationRetention.BINARY)
     annotation class UsersCollection
+    annotation class BichosCollection
 }

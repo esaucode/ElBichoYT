@@ -7,11 +7,15 @@
         <entry key="..\:/Users/Esau/AndroidStudioProjects/ElBichoYT/app/src/main/res/drawable/background_splash.xml" value="0.3828125" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/ElBichoYT/app/src/main/res/drawable/ic_left_arrow.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/ElBichoYT/app/src/main/res/drawable/ic_logo.xml" value="0.25" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/ElBichoYT/app/src/main/res/drawable/item_bicho.xml" value="0.3828125" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/ElBichoYT/app/src/main/res/layout/activity_home.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/ElBichoYT/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/ElBichoYT/app/src/main/res/layout/activity_splash.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/ElBichoYT/app/src/main/res/layout/fragment_add_edit_bicho.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/ElBichoYT/app/src/main/res/layout/fragment_bichos_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/ElBichoYT/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/Esau/AndroidStudioProjects/ElBichoYT/app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
+        <entry key="..\:/Users/Esau/AndroidStudioProjects/ElBichoYT/app/src/main/res/layout/item_bicho.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

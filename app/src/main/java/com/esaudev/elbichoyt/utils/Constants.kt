@@ -22,4 +22,5 @@ object Constants {
 
     const val SHARED_EMAIL = "email"
     const val SHARED_PASSWORD = "password"
+
 }
