@@ -12,16 +12,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
-    private var _binding : ActivityHomeBinding? = null
-    private val binding get() =_binding!!
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        _binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-
-        binding.tvHome.text = "$USER_LOGGED_IN_ID SIUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU"
+        setContentView(R.layout.activity_home)
     }
 }

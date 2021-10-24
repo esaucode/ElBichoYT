@@ -68,7 +68,7 @@ fun ImageView.load(url: String){
 }
 
 fun ImageView.loadURI(url: Uri){
-    Glide.with(this.context).load(url).into(this)
+    Glide.with(this.context).load(url).centerCrop().into(this)
 }
 
 fun Activity.hideKeyboard() {

@@ -12,6 +12,7 @@ object StorageUtils {
     // PERMISSIONS
     const val READ_STORAGE_PERMISSION_CODE = 2
     const val PICK_IMAGE_REQUEST_CODE = 1
+    const val BICHO_IMAGE: String = "bicho_image"
 
     fun showImageChooser(fragment: Fragment){
         // An intent for launching the image selection of phone storage.

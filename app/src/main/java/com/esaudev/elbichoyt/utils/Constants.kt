@@ -5,6 +5,8 @@ object Constants {
     const val INFO_NOT_SET = "info_not_set"
     const val USER_NOT_LOGGED = "user_not_logged"
 
+    const val DEFAULT_TEAM_IMAGE = "https://cdn2.mediotiempo.com/uploads/media/2021/07/07/bicho-pusieron-cristiano-espana-foto.jpg"
+
     const val USERS_COLLECTION = "users"
     const val BICHOS_COLLECTION = "bichos"
 
